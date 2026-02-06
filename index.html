@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kev Kustoms | Kustom Guitar Woodworking with Crystal Inlays</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&family=Barlow:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>AI Sales Agent | 24/7 Receptionist & Appointment Setter</title>
     <style>
         * {
             margin: 0;
@@ -12,953 +11,708 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --bg-dark: #0a0a0a;
-            --bg-card: #1a1a1a;
-            --accent-gold: #d4af37;
-            --accent-electric: #00ffff;
-            --accent-magenta: #ff00ff;
-            --text-light: #f5f5f5;
-            --text-muted: #999;
-            --border-glow: rgba(212, 175, 55, 0.3);
-        }
-
         body {
-            font-family: 'Barlow', sans-serif;
-            background: var(--bg-dark);
-            background-image: url('./images/Site-Background.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: var(--text-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at top, #141927 0%, #050711 45%, #030308 100%);
+            color: #f5f7ff;
             overflow-x: hidden;
-            line-height: 1.6;
-            position: relative;
-        }
-        
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 10, 10, 0.85);
-            z-index: 0;
-            pointer-events: none;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                background-attachment: scroll;
-                background-size: contain;
-                background-position: top center;
-            }
+            -webkit-font-smoothing: antialiased;
         }
 
-        .grain {
+        body::before {
+            content: "";
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.35;
+            pointer-events: none;
+            mix-blend-mode: soft-light;
+            z-index: -2;
+        }
+
+        .slides-container {
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
+            position: relative;
+            padding: 80px 16px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .slide {
+            width: 100%;
+            display: block;
+        }
+
+        .slide-content {
+            background: rgba(8, 12, 28, 0.9);
+            border-radius: 24px;
+            padding: 24px 18px;
+            max-width: 760px;
+            width: 100%;
+            margin: 0 auto;
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(120, 188, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 2.4em;
+            color: #7fd0ff;
+            margin-bottom: 10px;
+            text-align: center;
+            text-shadow: 0 0 18px rgba(127, 208, 255, 0.65);
+        }
+
+        h2 {
+            font-size: 1.9em;
+            color: #7fd0ff;
+            margin-bottom: 18px;
+            text-align: left;
+            text-shadow: 0 0 14px rgba(127, 208, 255, 0.5);
+        }
+
+        h3 {
+            font-size: 1.35em;
+            color: #c792ff;
+            margin-bottom: 14px;
+        }
+
+        p {
+            font-size: 1.02em;
+            line-height: 1.7;
+            color: #d7dbff;
+            margin-bottom: 14px;
+        }
+
+        .subtitle {
+            font-size: 1.05em;
+            color: #c0c6ff;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .highlight {
+            color: #ffdd73;
+            text-shadow: 0 0 10px rgba(255, 221, 115, 0.6);
+            font-weight: 600;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78em;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #92a3ff;
+            padding: 5px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(146, 163, 255, 0.5);
+            background: radial-gradient(circle at top left, rgba(146,163,255,0.2), transparent 55%);
+            margin-bottom: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 20px 0 4px;
+        }
+
+        .stat-card {
+            background: radial-gradient(circle at top left, #203a72 0%, #0b1024 55%, #050712 100%);
+            border-radius: 18px;
+            padding: 14px 10px;
+            text-align: center;
+            border: 1px solid rgba(96, 180, 255, 0.45);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .stat-number {
+            font-size: 1.7em;
+            font-weight: 700;
+            color: #7fd0ff;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.82em;
+            color: #c0c6ff;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .problem-list,
+        .solution-list,
+        .benefit-list {
+            list-style: none;
+            margin: 16px 0 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .problem-list li,
+        .solution-list li,
+        .benefit-list li {
+            font-size: 0.99em;
+            padding: 12px 12px;
+            background: linear-gradient(135deg, rgba(23, 36, 80, 0.95), rgba(10, 18, 46, 0.95));
+            border-radius: 16px;
+            border: 1px solid rgba(124, 144, 255, 0.35);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7);
+            color: #d7dbff;
+        }
+
+        .problem-list li::before {
+            content: "⚠️ ";
+            margin-right: 4px;
+        }
+
+        .solution-list li::before {
+            content: "🤖 ";
+            margin-right: 4px;
+        }
+
+        .benefit-list li::before {
+            content: "✨ ";
+            margin-right: 4px;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 12px;
+            margin: 16px 0 4px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(23, 36, 80, 0.95), rgba(10, 18, 46, 0.95));
+            padding: 14px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(124, 144, 255, 0.35);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7);
+        }
+
+        .feature-title {
+            font-size: 1.02em;
+            color: #7fd0ff;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .feature-desc {
+            font-size: 0.95em;
+            color: #d2d6ff;
+        }
+
+        .pricing-box {
+            position: relative;
+            background: radial-gradient(circle at top, #1cb5e0 0%, #000851 60%);
+            color: #f5f7ff;
+            padding: 26px 16px;
+            border-radius: 24px;
+            text-align: center;
+            margin: 18px 0 6px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+            overflow: hidden;
+        }
+
+        .pricing-box::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(124, 255, 194, 0.35), transparent 60%);
+            top: -80px;
+            left: -40px;
+            filter: blur(6px);
+            animation: pulse 8s infinite alternate;
+        }
+
+        .pricing-inner {
+            position: relative;
             z-index: 1;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            pointer-events: none;
         }
 
-        header {
+        .price-tag {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin: 10px 0 4px;
+        }
+
+        .price-detail {
+            font-size: 0.98em;
+            margin: 4px 0;
+            opacity: 0.96;
+        }
+
+        .pricing-plus {
+            margin: 12px 0;
+            font-size: 1.6em;
+            color: #ffdd73;
+        }
+
+        .roi-calculation {
+            background: linear-gradient(135deg, rgba(11, 18, 56, 0.96), rgba(8, 14, 44, 0.96));
+            padding: 16px 14px;
+            border-radius: 18px;
+            margin: 12px 0 4px;
+            border: 1px solid rgba(120, 188, 255, 0.35);
+        }
+
+        .roi-line {
+            font-size: 0.96em;
+            padding: 6px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            border-bottom: 1px solid rgba(120, 130, 190, 0.5);
+            color: #d7dbff;
+        }
+
+        .roi-line:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            color: #7fd0ff;
+            font-size: 1em;
+            margin-top: 4px;
+        }
+
+        .cta-box {
             position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at top, #1cb5e0 0%, #000851 60%);
+            border-radius: 24px;
+            padding: 24px 16px;
+            text-align: center;
+            color: #f5f7ff;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+        }
+
+        .cta-box::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(124, 255, 194, 0.35), transparent 60%);
+            top: -80px;
+            left: -40px;
+            filter: blur(6px);
+            animation: pulse 8s infinite alternate;
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .cta-text {
+            font-size: 1.02em;
+            margin-bottom: 18px;
+            color: #e2e6ff;
+        }
+
+        .cta-points {
+            margin: 10px 0 4px;
+            font-size: 1.02em;
+            line-height: 1.8;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: rgba(6, 214, 160, 0.1);
+            border: 1px solid rgba(6, 214, 160, 0.7);
+            color: #e6fff4;
+            font-size: 0.78em;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .timeline-card {
+            background: linear-gradient(135deg, rgba(23, 36, 80, 0.95), rgba(10, 18, 46, 0.95));
+            padding: 14px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(124, 144, 255, 0.35);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7);
+        }
+
+        .timeline-title {
+            font-size: 0.98em;
+            color: #7fd0ff;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .timeline-desc {
+            font-size: 0.94em;
+            color: #d2d6ff;
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            background: rgba(7, 9, 25, 0.92);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.82em;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(120, 188, 255, 0.3);
             z-index: 10;
-            padding: 2rem 4rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-glow);
-            backdrop-filter: blur(10px);
-            background: rgba(10, 10, 10, 0.8);
+            gap: 4px;
+            color: #c0c6ff;
         }
 
-        .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 3rem;
-            letter-spacing: 3px;
-            background: linear-gradient(135deg, var(--accent-gold), #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-            animation: shimmer 3s ease-in-out infinite;
+        .slide-counter .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: #7fd0ff;
+            box-shadow: 0 0 10px rgba(127, 208, 255, 0.8);
         }
 
-        @keyframes shimmer {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.3); }
-        }
-
-        nav {
-            display: flex;
-            gap: 3rem;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        nav a:hover {
-            color: var(--accent-gold);
-        }
-
-        .hero {
-            position: relative;
-            z-index: 2;
-            min-height: 90vh;
-            display: flex;
+        a.cta-button {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 4rem;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-family: 'Righteous', sans-serif;
-            font-size: 6rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff, var(--accent-gold), var(--accent-electric));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: slideDown 1s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-content p {
-            font-size: 1.4rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 3rem;
-            background: linear-gradient(135deg, var(--accent-gold), #b8902a);
-            color: var(--bg-dark);
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #06d6a0, #1b9fff);
+            color: #040715;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 0;
-            border: 2px solid var(--accent-gold);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            animation: fadeIn 1s ease-out 0.6s both;
+            font-size: 0.98em;
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s ease;
+        a.cta-button:hover {
+            filter: brightness(1.05);
         }
 
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        .gallery {
-            position: relative;
-            z-index: 2;
-            padding: 6rem 4rem;
-        }
-
-        .section-title {
-            font-family: 'Righteous', sans-serif;
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            background: linear-gradient(135deg, var(--accent-gold), #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .guitar-card {
-            background: rgba(26, 26, 26, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            overflow: hidden;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .guitar-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 255, 255, 0.05));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 1;
-        }
-
-        .guitar-card:hover::before {
-            opacity: 1;
-        }
-
-        .guitar-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-gold);
-            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
-        }
-
-        .guitar-image {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-            position: relative;
-            z-index: 2;
-        }
-
-        .builder {
-            position: relative;
-            z-index: 2;
-            padding: 6rem 4rem;
-            background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.03), transparent);
-        }
-
-        .builder-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .builder-options {
-            background: rgba(26, 26, 26, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border: 1px solid var(--border-glow);
-        }
-
-        .option-group {
-            margin-bottom: 2.5rem;
-        }
-
-        .option-group label {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        select {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: var(--text-light);
-            font-size: 1rem;
-            font-family: 'Barlow', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        /* Make dropdown options readable */
-        select option {
-            background: rgba(26, 26, 26, 0.98);
-            color: var(--text-light);
-            padding: 0.5rem;
-        }
-
-        select:hover, select:focus {
-            border-color: var(--accent-gold);
-            background: rgba(255, 255, 255, 0.1);
-            outline: none;
-        }
-
-        .color-grid, .crystal-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-
-        .color-option, .crystal-option {
-            aspect-ratio: 1;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 0.5rem;
-        }
-
-        .color-option {
-            border-radius: 50%;
-        }
-
-        .color-option.selected, .crystal-option.selected {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-            transform: scale(1.1);
-        }
-
-        .color-option:hover, .crystal-option:hover {
-            transform: scale(1.15);
-            border-color: var(--accent-gold);
-        }
-
-        /* Original Color Options */
-        .color-sunburst { background: linear-gradient(135deg, #8B4513, #D2691E, #F4A460); }
-        .color-teal { background: linear-gradient(135deg, #008B8B, #20B2AA); }
-        .color-emerald { background: linear-gradient(135deg, #0B5345, #16A085, #45B39D); }
-        .color-black { background: linear-gradient(135deg, #1a1a1a, #333); }
-        .color-red { background: linear-gradient(135deg, #8B0000, #DC143C, #FF6347); }
-        .color-silver { background: linear-gradient(135deg, #708090, #C0C0C0, #DCDCDC); }
-        .color-honey { background: linear-gradient(135deg, #CD853F, #DAA520, #F0E68C); }
-        .color-purple { background: linear-gradient(135deg, #4B0082, #8B008B, #9370DB); }
-
-        .crystal-option {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .builder-preview {
-            position: sticky;
-            top: 2rem;
-            background: rgba(26, 26, 26, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border: 1px solid var(--border-glow);
-            text-align: center;
-        }
-
-        .preview-title {
-            font-family: 'Righteous', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent-gold);
-        }
-
-        .preview-details {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
-        }
-
-        .detail-label {
-            color: var(--text-muted);
-        }
-
-        .detail-value {
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        .price {
-            font-family: 'Righteous', sans-serif;
-            font-size: 2.5rem;
-            color: var(--accent-gold);
-            margin: 2rem 0;
-        }
-
-        .submit-button {
-            width: 100%;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, var(--accent-gold), #b8902a);
-            color: var(--bg-dark);
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            margin-top: 1rem;
-        }
-
-        .submit-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-        }
-
-        footer {
-            position: relative;
-            z-index: 2;
-            padding: 3rem 4rem;
-            text-align: center;
-            border-top: 1px solid var(--border-glow);
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        footer p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        .social-links {
-            margin-top: 1.5rem;
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .social-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        @media (max-width: 1024px) {
-            .builder-container {
-                grid-template-columns: 1fr;
+        @keyframes pulse {
+            0% {
+                transform: translate3d(0,0,0) scale(1);
+                opacity: 0.6;
             }
-
-            .builder-preview {
-                position: static;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
+            100% {
+                transform: translate3d(40px, 20px, 0) scale(1.2);
+                opacity: 0.2;
             }
         }
 
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 1.5rem;
-                padding: 1.5rem 2rem;
+        @media (min-width: 768px) {
+            .slides-container {
+                padding: 90px 24px 60px;
+                gap: 32px;
             }
 
-            nav {
-                gap: 1.5rem;
-                font-size: 0.9rem;
-            }
-            
-            .logo {
-                font-size: 2.5rem;
+            .slide-content {
+                padding: 26px 22px;
             }
 
-            .hero {
-                min-height: 70vh;
-                padding: 2rem;
+            h1 {
+                font-size: 2.8em;
             }
 
-            .hero-content h1 {
-                font-size: 3rem;
-                line-height: 1.2;
-            }
-            
-            .hero-content p {
-                font-size: 1.1rem;
+            h2 {
+                font-size: 2.1em;
             }
 
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .gallery {
-                padding: 4rem 2rem;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .builder {
-                padding: 4rem 2rem;
-            }
-            
-            .builder-options {
-                padding: 2rem;
+            .features-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .color-grid, .crystal-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .stats-grid {
+                gap: 16px;
             }
-            
-            footer {
-                padding: 2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-content p {
-                font-size: 1rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .color-grid, .crystal-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
 
-        html {
-            scroll-behavior: smooth;
+            .timeline-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
     </style>
 </head>
 <body>
-    <div class="grain"></div>
+    <div class="slide-counter">
+        <span class="dot"></span>
+        <span>AI Sales Agent Pitch</span>
+    </div>
 
-    <header>
-        <div class="logo">KEV KUSTOMS</div>
-        <nav>
-            <a href="#gallery">Gallery</a>
-            <a href="#builder">Custom Builder</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <div class="slides-container">
+        <!-- Section 1: Hero -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="section-tag">AI Sales Agent • 24/7 Receptionist</div>
+                <h1>Never Miss Another Sale</h1>
+                <p class="subtitle">AI-powered sales agent, receptionist & appointment setter for your business.</p>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>KUSTOM GUITAR<br>WOODWORKING</h1>
-            <p>Handcrafted masterpieces that blend artistry with tone. Each guitar is a unique work of art, inlaid with your choice of crystals and customized to your exact specifications.</p>
-            <a href="#builder" class="cta-button">Build Your Guitar</a>
-        </div>
-    </section>
-
-    <section id="gallery" class="gallery">
-        <h2 class="section-title">Recent Creations</h2>
-        <div class="gallery-grid">
-            <div class="guitar-card">
-                <img src="./images/First-Guitar.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/5da6cedf-9449-40eb-b1e4-656fc793543d.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/8c0177a6-ccdb-4b66-8e81-06ba68c32fcc.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/c09d1406-e67f-4092-a9c4-42d211210ae9.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/c75c4966-d1d6-4336-8a59-c47944306e41.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/generated-image (17).png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/generated-image (22).png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/generated-image (23).png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/generated-image (29).png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/guitar-0.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/guitar-1.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/guitar-2.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/guitar-3.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/guitar-4.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/guitar-5.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/guitar-6.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/guitar-8.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-            <div class="guitar-card">
-                <img src="./images/guitar-11.png" alt="Custom Guitar" class="guitar-image">
-            </div>
-        </div>
-    </section>
-
-    <section id="builder" class="builder">
-        <h2 class="section-title">Build Your Custom Guitar</h2>
-        <div class="builder-container">
-            <div class="builder-options">
-                <div class="option-group">
-                    <label for="body-style">Body Style</label>
-                    <select id="body-style">
-                        <option value="stratocaster">Stratocaster Style</option>
-                        <option value="telecaster">Telecaster Style</option>
-                        <option value="sg">SG Style</option>
-                        <option value="les-paul">Les Paul Style</option>
-                        <option value="flying-v">Flying V</option>
-                        <option value="explorer">Explorer</option>
-                        <option value="custom">Custom Shape</option>
-                    </select>
-                </div>
-
-                <div class="option-group">
-                    <label for="wood-type">Body Wood Type</label>
-                    <select id="wood-type">
-                        <option value="walnut">Walnut</option>
-                        <option value="maple">Maple (+$100)</option>
-                        <option value="mahogany">Mahogany (+$150)</option>
-                        <option value="rosewood">Rosewood (+$200)</option>
-                        <option value="ebony">Ebony (+$250)</option>
-                        <option value="ash">Ash (+$100)</option>
-                        <option value="cherry">Cherry (+$150)</option>
-                        <option value="zebrawood">Zebrawood (+$300)</option>
-                    </select>
-                </div>
-
-                <div class="option-group">
-                    <label>Body Color / Finish</label>
-                    <div class="color-grid">
-                        <div class="color-option color-sunburst selected" data-color="Sunburst" data-price="0"></div>
-                        <div class="color-option color-teal" data-color="Teal Green" data-price="150"></div>
-                        <div class="color-option color-emerald" data-color="Emerald" data-price="150"></div>
-                        <div class="color-option color-black" data-color="Black Gloss" data-price="0"></div>
-                        <div class="color-option color-red" data-color="Cherry Red" data-price="100"></div>
-                        <div class="color-option color-silver" data-color="Metallic Silver" data-price="200"></div>
-                        <div class="color-option color-honey" data-color="Honey Burst" data-price="100"></div>
-                        <div class="color-option color-purple" data-color="Purple Metallic" data-price="150"></div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Always On</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">300%+</div>
+                        <div class="stat-label">Average ROI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">&lt;2s</div>
+                        <div class="stat-label">Response Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">72%</div>
+                        <div class="stat-label">Can’t Tell It’s AI</div>
                     </div>
                 </div>
 
-                <div class="option-group">
-                    <label for="pickups">Pickup Configuration</label>
-                    <select id="pickups">
-                        <option value="hh">Dual Humbucker (HH)</option>
-                        <option value="sss">Triple Single-Coil (SSS)</option>
-                        <option value="ssh">SSH Configuration</option>
-                        <option value="hsh">HSH Configuration</option>
-                        <option value="p90">P90 Pickups</option>
-                    </select>
-                </div>
+                <p class="center-text" style="margin-top: 10px;">
+                    It’s like your <span class="highlight">best salesperson working 24/7</span> — without breaks, sick days, or burnout.
+                </p>
+            </div>
+        </section>
 
-                <div class="option-group">
-                    <label for="neck-wood">Neck Wood</label>
-                    <select id="neck-wood">
-                        <option value="maple">Maple</option>
-                        <option value="mahogany">Mahogany</option>
-                        <option value="rosewood">Rosewood</option>
-                        <option value="ebony">Ebony (+$200)</option>
-                    </select>
-                </div>
+        <!-- Section 2: Problem -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="section-tag">Problem</div>
+                <h2>The Hidden Cost of Missed Calls</h2>
+                <ul class="problem-list">
+                    <li><strong>37% of calls go unanswered</strong> during business hours.</li>
+                    <li><strong>85% of customers hang up</strong> if they don’t reach someone immediately.</li>
+                    <li><strong>$14,000+ per month</strong> walks away from missed calls alone.</li>
+                    <li><strong>After‑hours inquiries</strong> sit until the next day — if they ever come back.</li>
+                    <li><strong>Your team loses hours</strong> every week on repetitive scheduling and qualification.</li>
+                </ul>
+                <p class="center-text" style="margin-top: 8px;">
+                    Every missed call is real money walking out the door.
+                </p>
+            </div>
+        </section>
 
-                <div class="option-group">
-                    <label>Crystal Inlays</label>
-                    <div class="crystal-grid">
-                        <div class="crystal-option selected" data-crystal="Clear Quartz" data-price="300">Clear Quartz</div>
-                        <div class="crystal-option" data-crystal="Amethyst" data-price="400">Amethyst</div>
-                        <div class="crystal-option" data-crystal="Rose Quartz" data-price="350">Rose Quartz</div>
-                        <div class="crystal-option" data-crystal="Citrine" data-price="350">Citrine</div>
-                        <div class="crystal-option" data-crystal="Black Obsidian" data-price="300">Black Obsidian</div>
-                        <div class="crystal-option" data-crystal="Turquoise" data-price="500">Turquoise</div>
-                        <div class="crystal-option" data-crystal="Tiger's Eye" data-price="400">Tiger's Eye</div>
-                        <div class="crystal-option" data-crystal="Lapis Lazuli" data-price="450">Lapis Lazuli</div>
+        <!-- Section 3: Solution -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="section-tag">Solution</div>
+                <h2>Your AI Sales Powerhouse</h2>
+                <ul class="solution-list">
+                    <li><strong>Answers every call instantly</strong> — no more missed opportunities, day or night.</li>
+                    <li><strong>Qualifies leads intelligently</strong> and prioritizes high‑value prospects automatically.</li>
+                    <li><strong>Books appointments for you</strong> by syncing directly with your calendar.</li>
+                    <li><strong>Follows up relentlessly</strong> and never forgets a lead or a next step.</li>
+                    <li><strong>Handles unlimited conversations</strong> so you can scale without hiring.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: How it works -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="section-tag">How It Works</div>
+                <h2>Seamless Integration. Immediate Impact.</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-title">🎯 Smart Lead Qualification</div>
+                        <div class="feature-desc">Asks the right questions, scores leads on your criteria, and routes hot prospects to you instantly.</div>
                     </div>
-                </div>
-
-                <div class="option-group">
-                    <label for="inlay-pattern">Inlay Pattern</label>
-                    <select id="inlay-pattern">
-                        <option value="scattered">Scattered Accent</option>
-                        <option value="border">Border Design</option>
-                        <option value="custom-art">Custom Artwork (+$500)</option>
-                        <option value="geometric">Geometric Pattern</option>
-                        <option value="floral">Floral Design</option>
-                    </select>
-                </div>
-
-                <div class="option-group">
-                    <label for="hardware">Hardware Finish</label>
-                    <select id="hardware">
-                        <option value="chrome">Chrome</option>
-                        <option value="gold">Gold (+$150)</option>
-                        <option value="black">Black</option>
-                        <option value="nickel">Nickel</option>
-                    </select>
+                    <div class="feature-card">
+                        <div class="feature-title">📅 Automated Scheduling</div>
+                        <div class="feature-desc">Checks your availability in real time and books appointments without human intervention.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">💬 Natural Conversation</div>
+                        <div class="feature-desc">Understands context, handles objections, and sounds human — the majority of people can’t tell it’s AI.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">📊 Live Insights</div>
+                        <div class="feature-desc">See every interaction, conversion rate, and revenue impact inside an analytics view.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">🔄 Persistent Follow‑up</div>
+                        <div class="feature-desc">Automatically nurtures leads with personalized follow‑ups until they’re ready to buy.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">🚀 CRM Integration</div>
+                        <div class="feature-desc">Pushes every conversation and booking straight into your CRM or pipeline.</div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="builder-preview">
-                <h3 class="preview-title">Your Custom Guitar</h3>
-                <div class="preview-details">
-                    <div class="detail-item">
-                        <span class="detail-label">Body Style:</span>
-                        <span class="detail-value" id="preview-body">Stratocaster Style</span>
+        <!-- Section 5: Results -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="section-tag">Results</div>
+                <h2>What Businesses Are Seeing</h2>
+                <ul class="benefit-list">
+                    <li><strong>78% increase in sign‑ups</strong> when AI handles initial sales calls.</li>
+                    <li><strong>50% higher close rates</strong> with AI‑driven lead prioritization.</li>
+                    <li><strong>90% of prospecting tasks automated</strong> so reps focus on closing, not chasing.</li>
+                    <li><strong>317% annual ROI</strong> with payback periods measured in months, not years.</li>
+                    <li><strong>94% of sales leaders</strong> say AI agents are now essential to their growth strategy.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 6: ROI -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="section-tag">ROI</div>
+                <h2>Your ROI In Black & White</h2>
+                <div class="roi-calculation">
+                    <h3 class="center-text" style="margin-bottom: 8px;">Conservative Monthly Scenario</h3>
+                    <div class="roi-line">
+                        <span>Extra bookings (5 / month at $2,000)</span>
+                        <span class="highlight">+$10,000</span>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Body Wood:</span>
-                        <span class="detail-value" id="preview-wood">Walnut</span>
+                    <div class="roi-line">
+                        <span>Recovered “missed” calls (3 / month at $1,500)</span>
+                        <span class="highlight">+$4,500</span>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Finish:</span>
-                        <span class="detail-value" id="preview-color">Sunburst</span>
+                    <div class="roi-line">
+                        <span>After‑hours conversions (2 / month at $1,800)</span>
+                        <span class="highlight">+$3,600</span>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Pickups:</span>
-                        <span class="detail-value" id="preview-pickups">Dual Humbucker</span>
+                    <div class="roi-line">
+                        <span>Time saved (20 hours at $50/hr)</span>
+                        <span class="highlight">+$1,000</span>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Neck Wood:</span>
-                        <span class="detail-value" id="preview-neck">Maple</span>
+                    <div class="roi-line">
+                        <span><strong>Total monthly value</strong></span>
+                        <span><strong>$19,100</strong></span>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Crystal Type:</span>
-                        <span class="detail-value" id="preview-crystal">Clear Quartz</span>
+                    <div class="roi-line">
+                        <span>AI agent monthly cost</span>
+                        <span>‑$200</span>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Inlay Pattern:</span>
-                        <span class="detail-value" id="preview-pattern">Scattered Accent</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Hardware:</span>
-                        <span class="detail-value" id="preview-hardware">Chrome</span>
+                    <div class="roi-line">
+                        <span>Net monthly gain</span>
+                        <span>$18,900</span>
                     </div>
                 </div>
-                <div class="price" id="total-price">$3,500</div>
-                <button class="submit-button" onclick="submitOrder()">Request Quote</button>
+                <p class="center-text" style="margin-top: 10px;">
+                    That’s a <span class="highlight">9,450%+ monthly ROI</span> from one decision.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contact">
-        <p>© 2026 Kev Kustoms. Handcrafted in the USA.</p>
-        <p>Email: info@kevkustoms.com | Phone: (555) 123-4567</p>
-        <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-        </div>
-    </footer>
+        <!-- Section 7: Pricing -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="section-tag">Pricing</div>
+                <h2>Simple, Transparent Pricing</h2>
+                <div class="pricing-box">
+                    <div class="pricing-inner">
+                        <div class="pill">Launch In Weeks, Not Months</div>
+                        <div class="price-tag">$2,000</div>
+                        <div class="price-detail">One‑time setup, training & implementation.</div>
+                        <div class="pricing-plus">+</div>
+                        <div class="price-tag">$200 / month</div>
+                        <div class="price-detail">Unlimited calls • 24/7 coverage • Full support.</div>
+                    </div>
+                </div>
 
-    <script>
-        let basePrice = 3000;
-        let selectedOptions = {
-            bodyStyle: 'Stratocaster Style',
-            woodType: 'Walnut',
-            woodPrice: 0,
-            color: 'Sunburst',
-            colorPrice: 0,
-            pickups: 'Dual Humbucker (HH)',
-            neckWood: 'Maple',
-            neckPrice: 0,
-            crystal: 'Clear Quartz',
-            crystalPrice: 300,
-            inlayPattern: 'Scattered Accent',
-            patternPrice: 0,
-            hardware: 'Chrome',
-            hardwarePrice: 0
-        };
+                <h3 style="margin-top: 10px;">Every Plan Includes:</h3>
+                <ul class="benefit-list">
+                    <li>Custom AI tuned to your offers, brand, and objections.</li>
+                    <li>Calendar integration & CRM sync so nothing falls through the cracks.</li>
+                    <li>Unlimited concurrent conversations — no per‑minute nonsense.</li>
+                    <li>Real‑time analytics and ongoing optimization, not a set‑and‑forget bot.</li>
+                    <li>Human support when you want to tweak scripts, logic, or strategy.</li>
+                </ul>
+            </div>
+        </section>
 
-        document.getElementById('body-style').addEventListener('change', function(e) {
-            selectedOptions.bodyStyle = e.target.options[e.target.selectedIndex].text;
-            document.getElementById('preview-body').textContent = selectedOptions.bodyStyle;
-        });
+        <!-- Section 8: Urgency -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="section-tag">Why Now</div>
+                <h2>Why Businesses Are Moving To AI</h2>
+                <ul class="benefit-list">
+                    <li>Most businesses plan to adopt AI agents by 2027 — the gap is closing fast.</li>
+                    <li>Your competitors are already testing AI to capture the leads you miss.</li>
+                    <li>Customers now expect instant responses; waiting until “tomorrow” loses them.</li>
+                    <li>The setup cost can pay for itself in the very first month.</li>
+                    <li>Every day without AI is another day of silent lost revenue.</li>
+                </ul>
+                <p class="center-text" style="margin-top: 8px;">
+                    While you think about it, someone else’s AI is happy to answer your leads.
+                </p>
+            </div>
+        </section>
 
-        document.getElementById('wood-type').addEventListener('change', function(e) {
-            const option = e.target.options[e.target.selectedIndex];
-            selectedOptions.woodType = option.text.replace(/\s*\(\+\$\d+\)/, '');
-            const prices = {
-                'walnut': 0,
-                'maple': 100,
-                'mahogany': 150,
-                'rosewood': 200,
-                'ebony': 250,
-                'ash': 100,
-                'cherry': 150,
-                'zebrawood': 300
-            };
-            selectedOptions.woodPrice = prices[option.value] || 0;
-            document.getElementById('preview-wood').textContent = selectedOptions.woodType;
-            updatePrice();
-        });
+        <!-- Section 9: CTA -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="cta-box">
+                    <div class="cta-inner">
+                        <div class="cta-title">Ready To Stop Missing Sales?</div>
+                        <div class="cta-text">
+                            Plug in an AI sales agent that answers, qualifies, and books — 24/7.
+                        </div>
+                        <div class="cta-points">
+                            📞 <strong>Book a live demo</strong><br>
+                            💰 <strong>See your custom ROI model</strong><br>
+                            🚀 <strong>Go live in as little as 2 weeks</strong>
+                        </div>
+                        <!-- Replace # with your Calendly / booking link -->
+                        <a href="#" class="cta-button">Schedule Your Demo</a>
+                    </div>
+                </div>
 
-        document.querySelectorAll('.color-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.color-option').forEach(o => o.classList.remove('selected'));
-                this.classList.add('selected');
-                selectedOptions.color = this.dataset.color;
-                selectedOptions.colorPrice = parseInt(this.dataset.price);
-                document.getElementById('preview-color').textContent = selectedOptions.color;
-                updatePrice();
-            });
-        });
-
-        document.getElementById('pickups').addEventListener('change', function(e) {
-            selectedOptions.pickups = e.target.options[e.target.selectedIndex].text;
-            document.getElementById('preview-pickups').textContent = selectedOptions.pickups;
-        });
-
-        document.getElementById('neck-wood').addEventListener('change', function(e) {
-            const option = e.target.options[e.target.selectedIndex];
-            selectedOptions.neckWood = option.text.replace(' (+$200)', '');
-            selectedOptions.neckPrice = option.value === 'ebony' ? 200 : 0;
-            document.getElementById('preview-neck').textContent = selectedOptions.neckWood;
-            updatePrice();
-        });
-
-        document.querySelectorAll('.crystal-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.crystal-option').forEach(o => o.classList.remove('selected'));
-                this.classList.add('selected');
-                selectedOptions.crystal = this.dataset.crystal;
-                selectedOptions.crystalPrice = parseInt(this.dataset.price);
-                document.getElementById('preview-crystal').textContent = selectedOptions.crystal;
-                updatePrice();
-            });
-        });
-
-        document.getElementById('inlay-pattern').addEventListener('change', function(e) {
-            const option = e.target.options[e.target.selectedIndex];
-            selectedOptions.inlayPattern = option.text.replace(' (+$500)', '');
-            selectedOptions.patternPrice = option.value === 'custom-art' ? 500 : 0;
-            document.getElementById('preview-pattern').textContent = selectedOptions.inlayPattern;
-            updatePrice();
-        });
-
-        document.getElementById('hardware').addEventListener('change', function(e) {
-            const option = e.target.options[e.target.selectedIndex];
-            selectedOptions.hardware = option.text.replace(' (+$150)', '');
-            selectedOptions.hardwarePrice = option.value === 'gold' ? 150 : 0;
-            document.getElementById('preview-hardware').textContent = selectedOptions.hardware;
-            updatePrice();
-        });
-
-        function updatePrice() {
-            const total = basePrice + 
-                         selectedOptions.woodPrice +
-                         selectedOptions.colorPrice + 
-                         selectedOptions.neckPrice + 
-                         selectedOptions.crystalPrice + 
-                         selectedOptions.patternPrice + 
-                         selectedOptions.hardwarePrice;
-            document.getElementById('total-price').textContent = '$' + total.toLocaleString();
-        }
-
-        function submitOrder() {
-            const specs = `
-Custom Guitar Specifications:
-━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Body Style: ${selectedOptions.bodyStyle}
-Body Wood: ${selectedOptions.woodType}
-Finish: ${selectedOptions.color}
-Pickups: ${selectedOptions.pickups}
-Neck Wood: ${selectedOptions.neckWood}
-Crystal Inlays: ${selectedOptions.crystal}
-Inlay Pattern: ${selectedOptions.inlayPattern}
-Hardware: ${selectedOptions.hardware}
-
-Total: ${document.getElementById('total-price').textContent}
-            `;
-            
-            alert(specs + '\n\nThank you for your interest! A Kev Kustoms representative will contact you shortly to finalize your custom guitar order.');
-        }
-
-        updatePrice();
-    </script>
+                <h3 style="margin-top: 16px;">What The First Month Looks Like</h3>
+                <div class="timeline-grid">
+                    <div class="timeline-card">
+                        <div class="timeline-title">Week 1</div>
+                        <div class="timeline-desc">Discovery call, mapping your offers, objections, and ideal leads.</div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-title">Week 2</div>
+                        <div class="timeline-desc">Integration, call flows, calendar & CRM connections, internal testing.</div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-title">Week 3</div>
+                        <div class="timeline-desc">Go live, monitor real conversations, and tweak scripts based on data.</div>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-title">Week 4</div>
+                        <div class="timeline-desc">Review your numbers, lock in optimization, and scale what’s working.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
