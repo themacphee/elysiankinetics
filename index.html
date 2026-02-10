@@ -48,7 +48,7 @@
             height: 100%;
             background: radial-gradient(ellipse at 20% 20%, rgba(177, 71, 255, 0.25) 0%, transparent 50%),
                         radial-gradient(ellipse at 80% 80%, rgba(0, 217, 255, 0.25) 0%, transparent 50%),
-                        linear-gradient(180deg, rgba(10, 14, 26, 0.85) 0%, rgba(10, 14, 26, 0.75) 100%);
+                        linear-gradient(180deg, rgba(10, 14, 26, 0.92) 0%, rgba(10, 14, 26, 0.88) 100%);
             z-index: 0;
             pointer-events: none;
             animation: gradientShift 15s ease-in-out infinite;
@@ -113,6 +113,18 @@
             font-size: 1.8rem;
             font-weight: 900;
             letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+
+        .logo-text {
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -185,6 +197,7 @@
             animation: slideDown 1s ease-out;
             text-transform: uppercase;
             letter-spacing: 3px;
+            filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.5));
         }
 
         @keyframes slideDown {
@@ -206,16 +219,19 @@
             animation: fadeIn 1s ease-out 0.3s both;
             text-transform: uppercase;
             letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.8);
         }
 
         .hero-content p {
             font-size: 1.3rem;
-            color: var(--text-muted);
+            color: var(--text-light);
             margin-bottom: 3rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             animation: fadeIn 1s ease-out 0.5s both;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            font-weight: 400;
         }
 
         @keyframes fadeIn {
@@ -605,6 +621,15 @@
                 letter-spacing: 1px;
             }
 
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
             nav {
                 gap: 1rem;
                 flex-wrap: wrap;
@@ -964,7 +989,23 @@
     <div class="particle" style="left: 90%; animation-delay: 8s;"></div>
 
     <header>
-        <div class="logo">ELYSIAN KINETICS AI</div>
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Hexagon border -->
+                <polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="url(#logoGrad)" stroke-width="3"/>
+                
+                <!-- EK text -->
+                <text x="50" y="65" font-family="Orbitron, sans-serif" font-size="40" font-weight="900" text-anchor="middle" fill="url(#logoGrad)">EK</text>
+                
+                <defs>
+                    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00d9ff" />
+                        <stop offset="100%" style="stop-color:#b147ff" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="logo-text">ELYSIAN KINETICS</span>
+        </div>
         <nav>
             <a href="#services">Solutions</a>
             <a href="#roi">ROI Calculator</a>
