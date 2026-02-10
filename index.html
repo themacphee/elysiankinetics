@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Sales Agent | 24/7 Receptionist & Appointment Setter</title>
+    <title>Elysian Kinetics AI | Revolutionary AI Sales & Customer Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,708 +12,826 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-card: #131824;
+            --accent-cyan: #00d9ff;
+            --accent-purple: #b147ff;
+            --accent-pink: #ff4d9e;
+            --text-light: #e8edf5;
+            --text-muted: #7a8ba3;
+            --border-glow: rgba(0, 217, 255, 0.2);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: radial-gradient(circle at top, #141927 0%, #050711 45%, #030308 100%);
-            color: #f5f7ff;
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            position: relative;
         }
-
+        
+        /* Animated gradient background */
         body::before {
-            content: "";
+            content: '';
             position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.35;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 20% 20%, rgba(177, 71, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(0, 217, 255, 0.15) 0%, transparent 50%);
+            z-index: 0;
             pointer-events: none;
-            mix-blend-mode: soft-light;
-            z-index: -2;
+            animation: gradientShift 15s ease-in-out infinite;
         }
 
-        .slides-container {
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Grid overlay */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            min-height: 100vh;
-            position: relative;
-            padding: 80px 16px 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .slide {
-            width: 100%;
-            display: block;
-        }
-
-        .slide-content {
-            background: rgba(8, 12, 28, 0.9);
-            border-radius: 24px;
-            padding: 24px 18px;
-            max-width: 760px;
-            width: 100%;
-            margin: 0 auto;
-            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(18px);
-            border: 1px solid rgba(120, 188, 255, 0.3);
-        }
-
-        h1 {
-            font-size: 2.4em;
-            color: #7fd0ff;
-            margin-bottom: 10px;
-            text-align: center;
-            text-shadow: 0 0 18px rgba(127, 208, 255, 0.65);
-        }
-
-        h2 {
-            font-size: 1.9em;
-            color: #7fd0ff;
-            margin-bottom: 18px;
-            text-align: left;
-            text-shadow: 0 0 14px rgba(127, 208, 255, 0.5);
-        }
-
-        h3 {
-            font-size: 1.35em;
-            color: #c792ff;
-            margin-bottom: 14px;
-        }
-
-        p {
-            font-size: 1.02em;
-            line-height: 1.7;
-            color: #d7dbff;
-            margin-bottom: 14px;
-        }
-
-        .subtitle {
-            font-size: 1.05em;
-            color: #c0c6ff;
-            text-align: center;
-            margin-bottom: 6px;
-        }
-
-        .highlight {
-            color: #ffdd73;
-            text-shadow: 0 0 10px rgba(255, 221, 115, 0.6);
-            font-weight: 600;
-        }
-
-        .section-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.78em;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: #92a3ff;
-            padding: 5px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(146, 163, 255, 0.5);
-            background: radial-gradient(circle at top left, rgba(146,163,255,0.2), transparent 55%);
-            margin-bottom: 10px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 14px;
-            margin: 20px 0 4px;
-        }
-
-        .stat-card {
-            background: radial-gradient(circle at top left, #203a72 0%, #0b1024 55%, #050712 100%);
-            border-radius: 18px;
-            padding: 14px 10px;
-            text-align: center;
-            border: 1px solid rgba(96, 180, 255, 0.45);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
-        }
-
-        .stat-number {
-            font-size: 1.7em;
-            font-weight: 700;
-            color: #7fd0ff;
-            margin-bottom: 4px;
-        }
-
-        .stat-label {
-            font-size: 0.82em;
-            color: #c0c6ff;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .problem-list,
-        .solution-list,
-        .benefit-list {
-            list-style: none;
-            margin: 16px 0 6px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .problem-list li,
-        .solution-list li,
-        .benefit-list li {
-            font-size: 0.99em;
-            padding: 12px 12px;
-            background: linear-gradient(135deg, rgba(23, 36, 80, 0.95), rgba(10, 18, 46, 0.95));
-            border-radius: 16px;
-            border: 1px solid rgba(124, 144, 255, 0.35);
-            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7);
-            color: #d7dbff;
-        }
-
-        .problem-list li::before {
-            content: "⚠️ ";
-            margin-right: 4px;
-        }
-
-        .solution-list li::before {
-            content: "🤖 ";
-            margin-right: 4px;
-        }
-
-        .benefit-list li::before {
-            content: "✨ ";
-            margin-right: 4px;
-        }
-
-        .center-text {
-            text-align: center;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr);
-            gap: 12px;
-            margin: 16px 0 4px;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, rgba(23, 36, 80, 0.95), rgba(10, 18, 46, 0.95));
-            padding: 14px 12px;
-            border-radius: 16px;
-            border: 1px solid rgba(124, 144, 255, 0.35);
-            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7);
-        }
-
-        .feature-title {
-            font-size: 1.02em;
-            color: #7fd0ff;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .feature-desc {
-            font-size: 0.95em;
-            color: #d2d6ff;
-        }
-
-        .pricing-box {
-            position: relative;
-            background: radial-gradient(circle at top, #1cb5e0 0%, #000851 60%);
-            color: #f5f7ff;
-            padding: 26px 16px;
-            border-radius: 24px;
-            text-align: center;
-            margin: 18px 0 6px;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
-            overflow: hidden;
-        }
-
-        .pricing-box::before {
-            content: "";
-            position: absolute;
-            width: 260px;
-            height: 260px;
-            background: radial-gradient(circle, rgba(124, 255, 194, 0.35), transparent 60%);
-            top: -80px;
-            left: -40px;
-            filter: blur(6px);
-            animation: pulse 8s infinite alternate;
-        }
-
-        .pricing-inner {
-            position: relative;
+            height: 100%;
             z-index: 1;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(var(--accent-cyan) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent-cyan) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
         }
 
-        .price-tag {
-            font-size: 2.2em;
-            font-weight: 800;
-            margin: 10px 0 4px;
-        }
-
-        .price-detail {
-            font-size: 0.98em;
-            margin: 4px 0;
-            opacity: 0.96;
-        }
-
-        .pricing-plus {
-            margin: 12px 0;
-            font-size: 1.6em;
-            color: #ffdd73;
-        }
-
-        .roi-calculation {
-            background: linear-gradient(135deg, rgba(11, 18, 56, 0.96), rgba(8, 14, 44, 0.96));
-            padding: 16px 14px;
-            border-radius: 18px;
-            margin: 12px 0 4px;
-            border: 1px solid rgba(120, 188, 255, 0.35);
-        }
-
-        .roi-line {
-            font-size: 0.96em;
-            padding: 6px 0;
+        header {
+            position: relative;
+            z-index: 10;
+            padding: 2rem 4rem;
             display: flex;
             justify-content: space-between;
-            gap: 8px;
-            border-bottom: 1px solid rgba(120, 130, 190, 0.5);
-            color: #d7dbff;
-        }
-
-        .roi-line:last-child {
-            border-bottom: none;
-            font-weight: 600;
-            color: #7fd0ff;
-            font-size: 1em;
-            margin-top: 4px;
-        }
-
-        .cta-box {
-            position: relative;
-            overflow: hidden;
-            background: radial-gradient(circle at top, #1cb5e0 0%, #000851 60%);
-            border-radius: 24px;
-            padding: 24px 16px;
-            text-align: center;
-            color: #f5f7ff;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
-        }
-
-        .cta-box::before {
-            content: "";
-            position: absolute;
-            width: 260px;
-            height: 260px;
-            background: radial-gradient(circle, rgba(124, 255, 194, 0.35), transparent 60%);
-            top: -80px;
-            left: -40px;
-            filter: blur(6px);
-            animation: pulse 8s infinite alternate;
-        }
-
-        .cta-inner {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-title {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            font-weight: 800;
-        }
-
-        .cta-text {
-            font-size: 1.02em;
-            margin-bottom: 18px;
-            color: #e2e6ff;
-        }
-
-        .cta-points {
-            margin: 10px 0 4px;
-            font-size: 1.02em;
-            line-height: 1.8;
-        }
-
-        .pill {
-            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            padding: 7px 14px;
-            border-radius: 999px;
-            background: rgba(6, 214, 160, 0.1);
-            border: 1px solid rgba(6, 214, 160, 0.7);
-            color: #e6fff4;
-            font-size: 0.78em;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
+            border-bottom: 1px solid var(--border-glow);
+            backdrop-filter: blur(20px);
+            background: rgba(10, 14, 26, 0.7);
         }
 
-        .timeline-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr);
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .timeline-card {
-            background: linear-gradient(135deg, rgba(23, 36, 80, 0.95), rgba(10, 18, 46, 0.95));
-            padding: 14px 12px;
-            border-radius: 16px;
-            border: 1px solid rgba(124, 144, 255, 0.35);
-            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7);
-        }
-
-        .timeline-title {
-            font-size: 0.98em;
-            color: #7fd0ff;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .timeline-desc {
-            font-size: 0.94em;
-            color: #d2d6ff;
-        }
-
-        .slide-counter {
-            position: fixed;
-            top: 14px;
-            right: 14px;
-            background: rgba(7, 9, 25, 0.92);
-            padding: 6px 12px;
-            border-radius: 999px;
-            font-size: 0.82em;
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.8);
-            border: 1px solid rgba(120, 188, 255, 0.3);
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            color: #c0c6ff;
-        }
-
-        .slide-counter .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 999px;
-            background: #7fd0ff;
-            box-shadow: 0 0 10px rgba(127, 208, 255, 0.8);
-        }
-
-        a.cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-            padding: 10px 20px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, #06d6a0, #1b9fff);
-            color: #040715;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.98em;
-            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        a.cta-button:hover {
-            filter: brightness(1.05);
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+            animation: pulse 3s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0% {
-                transform: translate3d(0,0,0) scale(1);
-                opacity: 0.6;
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.4); }
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .hero {
+            position: relative;
+            z-index: 2;
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 5.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideDown 1s ease-out;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
             }
-            100% {
-                transform: translate3d(40px, 20px, 0) scale(1.2);
-                opacity: 0.2;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        @media (min-width: 768px) {
-            .slides-container {
-                padding: 90px 24px 60px;
-                gap: 32px;
+        .hero-content .tagline {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.3rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-out 0.3s both;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            animation: fadeIn 1s ease-out 0.8s both;
+            box-shadow: 0 10px 40px rgba(0, 217, 255, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0, 217, 255, 0.5);
+        }
+
+        /* AI Services Section */
+        .services {
+            position: relative;
+            z-index: 2;
+            padding: 8rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(177, 71, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-features li {
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        /* ROI Calculator Section */
+        .roi-calculator {
+            position: relative;
+            z-index: 2;
+            padding: 8rem 4rem;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(177, 71, 255, 0.05));
+            border-top: 1px solid var(--border-glow);
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .input-group {
+            margin-bottom: 2rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glow);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+
+        .results {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(177, 71, 255, 0.1));
+            border-radius: 15px;
+            border: 1px solid var(--accent-cyan);
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .result-label {
+            color: var(--text-muted);
+        }
+
+        .result-value {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            position: relative;
+            z-index: 2;
+            padding: 8rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--accent-cyan);
+            opacity: 0.2;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-info h4 {
+            color: var(--accent-cyan);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            position: relative;
+            z-index: 2;
+            padding: 8rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(177, 71, 255, 0.1));
+            border-top: 1px solid var(--border-glow);
+        }
+
+        .cta-section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-cyan), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            position: relative;
+            z-index: 2;
+            padding: 3rem 4rem;
+            text-align: center;
+            border-top: 1px solid var(--border-glow);
+            background: rgba(10, 14, 26, 0.9);
+        }
+
+        footer p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem 2rem;
+                flex-direction: column;
+                gap: 1rem;
             }
 
-            .slide-content {
-                padding: 26px 22px;
+            nav {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
-            h1 {
-                font-size: 2.8em;
+            .hero-content h1 {
+                font-size: 3rem;
             }
 
-            h2 {
-                font-size: 2.1em;
+            .services {
+                padding: 4rem 2rem;
             }
 
-            .features-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            .stats-grid {
-                gap: 16px;
+            .section-header h2 {
+                font-size: 2.5rem;
             }
 
-            .timeline-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+            .roi-calculator {
+                padding: 4rem 2rem;
+            }
+        }
+
+        /* Floating particles effect */
+        .particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.5;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
             }
         }
     </style>
 </head>
 <body>
-    <div class="slide-counter">
-        <span class="dot"></span>
-        <span>AI Sales Agent Pitch</span>
-    </div>
+    <div class="grid-overlay"></div>
+    
+    <!-- Floating particles -->
+    <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="particle" style="left: 30%; animation-delay: 5s;"></div>
+    <div class="particle" style="left: 50%; animation-delay: 10s;"></div>
+    <div class="particle" style="left: 70%; animation-delay: 15s;"></div>
+    <div class="particle" style="left: 90%; animation-delay: 8s;"></div>
 
-    <div class="slides-container">
-        <!-- Section 1: Hero -->
-        <section class="slide">
-            <div class="slide-content">
-                <div class="section-tag">AI Sales Agent • 24/7 Receptionist</div>
-                <h1>Never Miss Another Sale</h1>
-                <p class="subtitle">AI-powered sales agent, receptionist & appointment setter for your business.</p>
+    <header>
+        <div class="logo">ELYSIAN KINETICS AI</div>
+        <nav>
+            <a href="#services">Solutions</a>
+            <a href="#roi">ROI Calculator</a>
+            <a href="#testimonials">Clients</a>
+            <a href="#contact">Get Started</a>
+        </nav>
+    </header>
 
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Always On</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">300%+</div>
-                        <div class="stat-label">Average ROI</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">&lt;2s</div>
-                        <div class="stat-label">Response Time</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">72%</div>
-                        <div class="stat-label">Can’t Tell It’s AI</div>
-                    </div>
-                </div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tagline">// Next-Gen AI Solutions</div>
+            <h1>Transform Your<br>Sales Pipeline</h1>
+            <p>Revolutionize customer interactions with AI-powered call qualification, sales agents, and intelligent reception systems that work 24/7/365.</p>
+            <a href="#contact" class="cta-button">Request Demo</a>
+        </div>
+    </section>
 
-                <p class="center-text" style="margin-top: 10px;">
-                    It’s like your <span class="highlight">best salesperson working 24/7</span> — without breaks, sick days, or burnout.
-                </p>
-            </div>
-        </section>
-
-        <!-- Section 2: Problem -->
-        <section class="slide">
-            <div class="slide-content">
-                <div class="section-tag">Problem</div>
-                <h2>The Hidden Cost of Missed Calls</h2>
-                <ul class="problem-list">
-                    <li><strong>37% of calls go unanswered</strong> during business hours.</li>
-                    <li><strong>85% of customers hang up</strong> if they don’t reach someone immediately.</li>
-                    <li><strong>$14,000+ per month</strong> walks away from missed calls alone.</li>
-                    <li><strong>After‑hours inquiries</strong> sit until the next day — if they ever come back.</li>
-                    <li><strong>Your team loses hours</strong> every week on repetitive scheduling and qualification.</li>
-                </ul>
-                <p class="center-text" style="margin-top: 8px;">
-                    Every missed call is real money walking out the door.
-                </p>
-            </div>
-        </section>
-
-        <!-- Section 3: Solution -->
-        <section class="slide">
-            <div class="slide-content">
-                <div class="section-tag">Solution</div>
-                <h2>Your AI Sales Powerhouse</h2>
-                <ul class="solution-list">
-                    <li><strong>Answers every call instantly</strong> — no more missed opportunities, day or night.</li>
-                    <li><strong>Qualifies leads intelligently</strong> and prioritizes high‑value prospects automatically.</li>
-                    <li><strong>Books appointments for you</strong> by syncing directly with your calendar.</li>
-                    <li><strong>Follows up relentlessly</strong> and never forgets a lead or a next step.</li>
-                    <li><strong>Handles unlimited conversations</strong> so you can scale without hiring.</li>
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>AI Solutions That Scale</h2>
+            <p>Cutting-edge artificial intelligence designed to amplify your team's productivity and revenue.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>AI Call Qualifier</h3>
+                <p>Intelligent lead qualification that identifies high-value prospects instantly, filtering out time-wasters before they reach your sales team.</p>
+                <ul class="service-features">
+                    <li>Natural language processing for nuanced conversations</li>
+                    <li>Real-time lead scoring and prioritization</li>
+                    <li>Seamless CRM integration</li>
+                    <li>Custom qualification criteria</li>
+                    <li>Detailed call analytics and insights</li>
                 </ul>
             </div>
-        </section>
 
-        <!-- Section 4: How it works -->
-        <section class="slide">
-            <div class="slide-content">
-                <div class="section-tag">How It Works</div>
-                <h2>Seamless Integration. Immediate Impact.</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-title">🎯 Smart Lead Qualification</div>
-                        <div class="feature-desc">Asks the right questions, scores leads on your criteria, and routes hot prospects to you instantly.</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-title">📅 Automated Scheduling</div>
-                        <div class="feature-desc">Checks your availability in real time and books appointments without human intervention.</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-title">💬 Natural Conversation</div>
-                        <div class="feature-desc">Understands context, handles objections, and sounds human — the majority of people can’t tell it’s AI.</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-title">📊 Live Insights</div>
-                        <div class="feature-desc">See every interaction, conversion rate, and revenue impact inside an analytics view.</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-title">🔄 Persistent Follow‑up</div>
-                        <div class="feature-desc">Automatically nurtures leads with personalized follow‑ups until they’re ready to buy.</div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-title">🚀 CRM Integration</div>
-                        <div class="feature-desc">Pushes every conversation and booking straight into your CRM or pipeline.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 5: Results -->
-        <section class="slide">
-            <div class="slide-content">
-                <div class="section-tag">Results</div>
-                <h2>What Businesses Are Seeing</h2>
-                <ul class="benefit-list">
-                    <li><strong>78% increase in sign‑ups</strong> when AI handles initial sales calls.</li>
-                    <li><strong>50% higher close rates</strong> with AI‑driven lead prioritization.</li>
-                    <li><strong>90% of prospecting tasks automated</strong> so reps focus on closing, not chasing.</li>
-                    <li><strong>317% annual ROI</strong> with payback periods measured in months, not years.</li>
-                    <li><strong>94% of sales leaders</strong> say AI agents are now essential to their growth strategy.</li>
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>AI Sales Agent</h3>
+                <p>Your tireless sales team member that engages prospects, answers questions, and closes deals around the clock with human-like conversation.</p>
+                <ul class="service-features">
+                    <li>Personalized sales pitches based on prospect data</li>
+                    <li>Objection handling and persuasion tactics</li>
+                    <li>Multi-language support for global reach</li>
+                    <li>Automated follow-ups and nurture sequences</li>
+                    <li>Conversion optimization through A/B testing</li>
                 </ul>
             </div>
-        </section>
 
-        <!-- Section 6: ROI -->
-        <section class="slide">
-            <div class="slide-content">
-                <div class="section-tag">ROI</div>
-                <h2>Your ROI In Black & White</h2>
-                <div class="roi-calculation">
-                    <h3 class="center-text" style="margin-bottom: 8px;">Conservative Monthly Scenario</h3>
-                    <div class="roi-line">
-                        <span>Extra bookings (5 / month at $2,000)</span>
-                        <span class="highlight">+$10,000</span>
-                    </div>
-                    <div class="roi-line">
-                        <span>Recovered “missed” calls (3 / month at $1,500)</span>
-                        <span class="highlight">+$4,500</span>
-                    </div>
-                    <div class="roi-line">
-                        <span>After‑hours conversions (2 / month at $1,800)</span>
-                        <span class="highlight">+$3,600</span>
-                    </div>
-                    <div class="roi-line">
-                        <span>Time saved (20 hours at $50/hr)</span>
-                        <span class="highlight">+$1,000</span>
-                    </div>
-                    <div class="roi-line">
-                        <span><strong>Total monthly value</strong></span>
-                        <span><strong>$19,100</strong></span>
-                    </div>
-                    <div class="roi-line">
-                        <span>AI agent monthly cost</span>
-                        <span>‑$200</span>
-                    </div>
-                    <div class="roi-line">
-                        <span>Net monthly gain</span>
-                        <span>$18,900</span>
-                    </div>
-                </div>
-                <p class="center-text" style="margin-top: 10px;">
-                    That’s a <span class="highlight">9,450%+ monthly ROI</span> from one decision.
-                </p>
-            </div>
-        </section>
-
-        <!-- Section 7: Pricing -->
-        <section class="slide">
-            <div class="slide-content">
-                <div class="section-tag">Pricing</div>
-                <h2>Simple, Transparent Pricing</h2>
-                <div class="pricing-box">
-                    <div class="pricing-inner">
-                        <div class="pill">Launch In Weeks, Not Months</div>
-                        <div class="price-tag">$2,000</div>
-                        <div class="price-detail">One‑time setup, training & implementation.</div>
-                        <div class="pricing-plus">+</div>
-                        <div class="price-tag">$200 / month</div>
-                        <div class="price-detail">Unlimited calls • 24/7 coverage • Full support.</div>
-                    </div>
-                </div>
-
-                <h3 style="margin-top: 10px;">Every Plan Includes:</h3>
-                <ul class="benefit-list">
-                    <li>Custom AI tuned to your offers, brand, and objections.</li>
-                    <li>Calendar integration & CRM sync so nothing falls through the cracks.</li>
-                    <li>Unlimited concurrent conversations — no per‑minute nonsense.</li>
-                    <li>Real‑time analytics and ongoing optimization, not a set‑and‑forget bot.</li>
-                    <li>Human support when you want to tweak scripts, logic, or strategy.</li>
+            <div class="service-card">
+                <div class="service-icon">📞</div>
+                <h3>AI Reception & Scheduler</h3>
+                <p>Never miss another opportunity with intelligent call routing, appointment scheduling, and 24/7 customer service that feels genuinely human.</p>
+                <ul class="service-features">
+                    <li>Smart call routing based on caller intent</li>
+                    <li>Automated appointment booking and confirmations</li>
+                    <li>Calendar integration with conflict detection</li>
+                    <li>Customer inquiry handling and FAQs</li>
+                    <li>SMS and email follow-up automation</li>
                 </ul>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section 8: Urgency -->
-        <section class="slide">
-            <div class="slide-content">
-                <div class="section-tag">Why Now</div>
-                <h2>Why Businesses Are Moving To AI</h2>
-                <ul class="benefit-list">
-                    <li>Most businesses plan to adopt AI agents by 2027 — the gap is closing fast.</li>
-                    <li>Your competitors are already testing AI to capture the leads you miss.</li>
-                    <li>Customers now expect instant responses; waiting until “tomorrow” loses them.</li>
-                    <li>The setup cost can pay for itself in the very first month.</li>
-                    <li>Every day without AI is another day of silent lost revenue.</li>
-                </ul>
-                <p class="center-text" style="margin-top: 8px;">
-                    While you think about it, someone else’s AI is happy to answer your leads.
-                </p>
+    <section class="roi-calculator" id="roi">
+        <div class="section-header">
+            <h2>Calculate Your ROI</h2>
+            <p>See how much revenue you could unlock with Elysian Kinetics AI</p>
+        </div>
+        <div class="calculator-container">
+            <div class="input-group">
+                <label>Monthly Inbound Calls</label>
+                <input type="number" id="calls" value="500" min="0">
             </div>
-        </section>
-
-        <!-- Section 9: CTA -->
-        <section class="slide">
-            <div class="slide-content">
-                <div class="cta-box">
-                    <div class="cta-inner">
-                        <div class="cta-title">Ready To Stop Missing Sales?</div>
-                        <div class="cta-text">
-                            Plug in an AI sales agent that answers, qualifies, and books — 24/7.
-                        </div>
-                        <div class="cta-points">
-                            📞 <strong>Book a live demo</strong><br>
-                            💰 <strong>See your custom ROI model</strong><br>
-                            🚀 <strong>Go live in as little as 2 weeks</strong>
-                        </div>
-                        <!-- Replace # with your Calendly / booking link -->
-                        <a href="#" class="cta-button">Schedule Your Demo</a>
-                    </div>
+            <div class="input-group">
+                <label>Average Deal Value ($)</label>
+                <input type="number" id="dealValue" value="5000" min="0">
+            </div>
+            <div class="input-group">
+                <label>Current Conversion Rate (%)</label>
+                <input type="number" id="conversionRate" value="15" min="0" max="100">
+            </div>
+            <div class="input-group">
+                <label>Hours Saved Per Week</label>
+                <input type="number" id="hoursSaved" value="20" min="0">
+            </div>
+            
+            <div class="results">
+                <div class="result-item">
+                    <span class="result-label">Current Monthly Revenue:</span>
+                    <span class="result-value" id="currentRevenue">$37,500</span>
                 </div>
-
-                <h3 style="margin-top: 16px;">What The First Month Looks Like</h3>
-                <div class="timeline-grid">
-                    <div class="timeline-card">
-                        <div class="timeline-title">Week 1</div>
-                        <div class="timeline-desc">Discovery call, mapping your offers, objections, and ideal leads.</div>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-title">Week 2</div>
-                        <div class="timeline-desc">Integration, call flows, calendar & CRM connections, internal testing.</div>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-title">Week 3</div>
-                        <div class="timeline-desc">Go live, monitor real conversations, and tweak scripts based on data.</div>
-                    </div>
-                    <div class="timeline-card">
-                        <div class="timeline-title">Week 4</div>
-                        <div class="timeline-desc">Review your numbers, lock in optimization, and scale what’s working.</div>
-                    </div>
+                <div class="result-item">
+                    <span class="result-label">Projected Revenue (25% lift):</span>
+                    <span class="result-value" id="projectedRevenue">$46,875</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Labor Cost Savings (Monthly):</span>
+                    <span class="result-value" id="laborSavings">$4,000</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Total Monthly Increase:</span>
+                    <span class="result-value" id="totalIncrease">$13,375</span>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <h2>Trusted By Industry Leaders</h2>
+            <p>See what our clients say about transforming their sales operations</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Elysian Kinetics AI increased our qualified leads by 340% in just 3 months. The AI call qualifier alone paid for itself in the first week."</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Sarah Chen</h4>
+                        <p>VP of Sales, TechVenture Inc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"We went from missing 60% of after-hours calls to capturing every single opportunity. The AI reception system is like having a world-class team working 24/7."</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Marcus Rodriguez</h4>
+                        <p>CEO, Summit Medical Group</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The ROI was immediate. Our sales team now focuses on high-value conversations while AI handles qualification and scheduling. Game changer."</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h4>Jennifer Lawson</h4>
+                        <p>Director of Operations, Apex Solutions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Join hundreds of companies leveraging AI to dominate their markets. Book a personalized demo and see Elysian Kinetics AI in action.</p>
+        <a href="mailto:contact@elysiankineticsai.com?subject=Demo Request" class="cta-button">Schedule Your Demo</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Elysian Kinetics AI. All rights reserved.</p>
+        <p>Email: contact@elysiankineticsai.com | Phone: (555) 987-6543</p>
+        <div class="social-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+            <a href="#">YouTube</a>
+        </div>
+    </footer>
+
+    <script>
+        // ROI Calculator
+        function calculateROI() {
+            const calls = parseFloat(document.getElementById('calls').value) || 0;
+            const dealValue = parseFloat(document.getElementById('dealValue').value) || 0;
+            const conversionRate = parseFloat(document.getElementById('conversionRate').value) || 0;
+            const hoursSaved = parseFloat(document.getElementById('hoursSaved').value) || 0;
+
+            const currentRevenue = calls * (conversionRate / 100) * dealValue;
+            const projectedRevenue = calls * ((conversionRate + 5) / 100) * dealValue; // Conservative 5% lift
+            const revenueIncrease = projectedRevenue - currentRevenue;
+            const laborSavings = hoursSaved * 4 * 50; // $50/hour rate, 4 weeks
+            const totalIncrease = revenueIncrease + laborSavings;
+
+            document.getElementById('currentRevenue').textContent = '$' + currentRevenue.toLocaleString();
+            document.getElementById('projectedRevenue').textContent = '$' + projectedRevenue.toLocaleString();
+            document.getElementById('laborSavings').textContent = '$' + laborSavings.toLocaleString();
+            document.getElementById('totalIncrease').textContent = '$' + totalIncrease.toLocaleString();
+        }
+
+        // Add event listeners to inputs
+        ['calls', 'dealValue', 'conversionRate', 'hoursSaved'].forEach(id => {
+            document.getElementById(id).addEventListener('input', calculateROI);
+        });
+
+        // Calculate on load
+        calculateROI();
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
