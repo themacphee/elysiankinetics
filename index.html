@@ -26,13 +26,18 @@
         body {
             font-family: 'Work Sans', sans-serif;
             background: var(--bg-dark);
+            background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.6;
             position: relative;
         }
         
-        /* Animated gradient background */
+        /* Animated gradient background with AI effect */
         body::before {
             content: '';
             position: fixed;
@@ -40,8 +45,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 20% 20%, rgba(177, 71, 255, 0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 80%, rgba(0, 217, 255, 0.15) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 20% 20%, rgba(177, 71, 255, 0.25) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 80%, rgba(0, 217, 255, 0.25) 0%, transparent 50%),
+                        linear-gradient(180deg, rgba(10, 14, 26, 0.85) 0%, rgba(10, 14, 26, 0.75) 100%);
             z-index: 0;
             pointer-events: none;
             animation: gradientShift 15s ease-in-out infinite;
@@ -66,6 +72,27 @@
                 linear-gradient(90deg, var(--accent-cyan) 1px, transparent 1px);
             background-size: 50px 50px;
             pointer-events: none;
+        }
+
+        /* AI Scan line effect */
+        .scan-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            z-index: 1;
+            pointer-events: none;
+            animation: scan 8s linear infinite;
+            box-shadow: 0 0 20px var(--accent-cyan);
+        }
+
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
         }
 
         header {
@@ -553,6 +580,12 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+                background-size: cover;
+                background-position: center;
+            }
+
             header {
                 padding: 1.5rem 2rem;
                 flex-direction: column;
@@ -583,6 +616,15 @@
 
             .roi-calculator {
                 padding: 4rem 2rem;
+            }
+
+            .popup-content {
+                padding: 2rem;
+                width: 95%;
+            }
+
+            .popup-content h2 {
+                font-size: 1.5rem;
             }
         }
 
@@ -615,10 +657,137 @@
                 opacity: 0;
             }
         }
+
+        /* Newsletter Popup */
+        .newsletter-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .newsletter-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-content {
+            background: var(--bg-card);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 80px rgba(0, 217, 255, 0.4);
+            animation: popupSlide 0.5s ease-out;
+        }
+
+        @keyframes popupSlide {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-close:hover {
+            color: var(--accent-cyan);
+            transform: rotate(90deg);
+        }
+
+        .popup-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .popup-content p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .popup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .popup-form input {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glow);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .popup-form input:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+
+        .popup-form button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+
+        .popup-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.5);
+        }
     </style>
 </head>
 <body>
     <div class="grid-overlay"></div>
+    <div class="scan-line"></div>
     
     <!-- Floating particles -->
     <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
@@ -783,13 +952,26 @@
 
     <footer>
         <p>© 2026 Elysian Kinetics AI. All rights reserved.</p>
-        <p>Email: <a\> sales@elysiankinetics.com </a> | Phone: (754) 347-9556</p>
+        <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="690a06071d080a1d290c05101a0008070200070c1d000a1a0800470a0604">[email&#160;protected]</a> | Phone: (555) 987-6543</p>
         <div class="social-links">
             <a href="#">LinkedIn</a>
             <a href="#">Twitter</a>
             <a href="#">YouTube</a>
         </div>
     </footer>
+
+    <!-- Newsletter Popup -->
+    <div class="newsletter-popup" id="newsletterPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <h2>Stay Up to Date</h2>
+            <p>Subscribe to the Elysian Kinetics newsletter and get exclusive AI insights, real estate tips, and early access to new features.</p>
+            <form class="popup-form" onsubmit="submitNewsletter(event)">
+                <input type="email" id="emailInput" placeholder="Enter your email" required>
+                <button type="submit">Subscribe Now</button>
+            </form>
+        </div>
+    </div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ROI Calculator
@@ -823,4 +1005,52 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const tar
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Newsletter Popup
+        setTimeout(function() {
+            document.getElementById('newsletterPopup').classList.add('active');
+        }, 5000); // Shows after 5 seconds
+
+        function closePopup() {
+            document.getElementById('newsletterPopup').classList.remove('active');
+            localStorage.setItem('newsletterShown', 'true');
+        }
+
+        // Check if popup was already shown
+        if (localStorage.getItem('newsletterShown')) {
+            // Don't show popup if user already saw it or subscribed
+        } else {
+            // Will show popup after delay
+        }
+
+        function submitNewsletter(e) {
+            e.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            
+            // Create mailto link
+            const subject = encodeURIComponent('Newsletter Subscription - Elysian Kinetics AI');
+            const body = encodeURIComponent('New newsletter subscription:\n\nEmail: ' + email);
+            
+            // Send email
+            window.location.href = 'mailto:sales@elysiankinetics.com?subject=' + subject + '&body=' + body;
+            
+            // Show thank you message
+            document.querySelector('.popup-content').innerHTML = `
+                <button class="popup-close" onclick="closePopup()">&times;</button>
+                <h2>Thank You!</h2>
+                <p>You've been added to our newsletter. Stay tuned for exclusive AI insights and real estate tips!</p>
+                <button onclick="closePopup()" style="width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); color: #fff; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; margin-top: 1rem;">Close</button>
+            `;
+            
+            localStorage.setItem('newsletterShown', 'true');
+        }
+    </script>
